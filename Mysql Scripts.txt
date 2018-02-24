@@ -1,0 +1,23 @@
+-----------------------
+MySql Scripts: 
+DB name: ilogik
+
+Create:
+CREATE TABLE FormEntry (
+formEntryId MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(256) NOT NULL,
+email VARCHAR(256) NOT NULL,
+number VARCHAR(12) NOT NULL,
+reg_date TIMESTAMP
+);
+
+
+CREATE TABLE FormField (
+    fieldId MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    formentryId MEDIUMINT UNSIGNED NOT NULL,
+    fieldName VARCHAR(256),
+    fieldValue VARCHAR(256),
+    FOREIGN KEY (formentryId) REFERENCES FormEntry(formentryId) ON DELETE CASCADE
+);
+
+
